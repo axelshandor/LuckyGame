@@ -1,0 +1,74 @@
+<html>
+    <head>
+  <meta charset="utf-8">
+  <meta name="generator" content="AlterVista - Editor HTML">
+  			<title>Indovina Numero THE GAME</title>
+                        <style>
+                            h1 {
+                            color: red;
+                            font-size: 60px;
+                            text-shadow: -3px 0 black, 0 3px black, 3px 0 black, 0 -3px black;
+                            }
+                            </style>
+                            
+			<script type="text/javascript" language="JavaScript">
+                       
+       
+                        function mostra()
+                        {
+                        s++;
+                        alert(ngenera);
+                        document.getElementById("hint").innerHTML="Soluzioni="+s;
+                        ngenera=Math.floor((Math.random() * 1000) + 1);
+                        
+                        }
+                        
+			function help()
+			{
+			tentativi++;
+			document.getElementById("visualizza").innerHTML="Tentativi="+tentativi;
+			inserito=parseInt(document.getElementById("numero").value);
+			if (inserito == ngenera) {
+                        alert("COMPLIMENTI! HAI INDOVINATO");
+			location.reload();
+			}
+			else {
+			if (inserito > ngenera)
+                            document.getElementById("confronto").innerHTML="Inserisci un numero pi&ugrave piccolo";
+			else document.getElementById("confronto").innerHTML="Inserisci un numero pi&ugrave grande";
+			}
+			}
+			function genera()
+			{
+			tentativi=0;
+                        s=0;
+			document.getElementById("visualizza").innerHTML="Tentativi:"+tentativi;
+			ngenera=Math.floor((Math.random() * 1000) + 1);
+                        
+			
+			}
+			</script>
+</head>
+<body onload="genera()" bgcolor="beige">
+    <table align="center">
+        <tr>
+            <td>
+		<h1>Indovina Numero THE GAME</h1>
+		<p>Inserisci un numero nella casella allo scopo di indovinare quello generato dal PC. Da 0 a 1000 BUONA FORTUNA ! </p>
+		<form>
+		Scrivi qui il tuo numero ↣<input id="numero" type="text" name="numero" size="4" maxlength="4"><br>
+		<input type="button" value="Controlla" onclick="help()">
+		<input type="reset" value="Reset" onclick="location.reload();">
+                <input type="button" value="Risposta" onclick="mostra()">
+		</form>
+                <div id="confronto"></div>
+		<div id="visualizza">Tentativi=0</div>
+                <div id="hint"></div>
+                </td>
+                </tr>
+                </table>
+
+
+
+</body>
+</html>
